@@ -5,6 +5,9 @@ import Box from '@material-ui/core/Box';
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+import Welcome from './components/welcome';
+import Authenticate from './components/auth';
+
 function App() {
   return (
     <Provider>
@@ -16,6 +19,10 @@ function App() {
           </Box>
         </Toolbar>
       </AppBar>
+      <Switch>
+        <Route exact path="/" component={Welcome}/>
+        <Route exact path="/authenticate" component={Authenticate}/>
+      </Switch>
       </BrowserRouter>
     </Provider>
   );
