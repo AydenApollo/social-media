@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Box from '@material-ui/core/Box';
+
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider>
+      <BrowserRouter>
+      <AppBar position="relative">
+        <Toolbar>
+          <Box display="flex" width={100} alignItems="center">
+            <h5>LOOK@ME</h5>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
