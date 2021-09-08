@@ -7,7 +7,7 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <Button>Signup</Button>
+                <Button variant="contained" color="primary">Signup</Button>
             </div>
         )
     }

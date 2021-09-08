@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 import Login from './logButton';
 import SignUp from './signupButton';
@@ -20,9 +21,11 @@ class Welcome extends Component {
                 <TextField id="standard-basic" label="Username"/>
                 <div>
                     <SignUp/>
+                    </div>
+                <div>
+                    Already Have an Account? Login<Button>Here</Button>
                 </div>
-
-            </div>
+                </div>
             </form>
         )
     }
