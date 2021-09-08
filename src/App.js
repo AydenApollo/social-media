@@ -7,10 +7,11 @@ import { Provider } from 'react-redux';
 
 import Welcome from './components/welcome';
 import Authenticate from './components/auth';
+import store from './dispatch/store';
 
 function App() {
   return (
-    <Provider>
+    <Provider store={store}>
       <BrowserRouter>
       <AppBar position="relative">
         <Toolbar>
