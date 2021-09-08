@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Authenticate extends Component {
+import Button from '@material-ui/core/Button';
+
+class Home extends Component {
     render() {
         return (
             <div>
-                Log in here for a good time
+                <Button>Home</Button>
             </div>
         )
     }
@@ -15,5 +17,5 @@ function mapStateToProps(state) {
     return {}
 }
 
-var ConnectedAuth = connect(mapStateToProps)(Authenticate);
-export default ConnectedAuth
+var ConnectedHome = connect(mapStateToProps)(Home);
+export default ConnectedHome
