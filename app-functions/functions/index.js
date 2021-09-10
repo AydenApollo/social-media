@@ -2,16 +2,11 @@ const functions = require("firebase-functions");
 const admin = require('firebase-admin');
 
 admin.initializeApp();
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info("Hello logs!", {structuredData: true});
-  response.send("Hello from Firebase!");
-});
 
+const express = require('express');
+const app = express();
 
-exports.getPosts = functions.https.onRequest((req, res) => {
+app.get('/posts', (req, res) => {
   admin.firestore().collection('posts').get()
     .then((data) => {
       let posts = [];
@@ -21,9 +16,13 @@ exports.getPosts = functions.https.onRequest((req, res) => {
       return res.json(posts);
     })
     .catch((err) => console.error(err));
-});
+})
+
 
 exports.createPost = functions.https.onRequest((req, res) => {
+  if(req.method !== 'POST') {
+    return res.status(400).json({ error: 'Method not allowed'})
+  }
   const newPost = {
     body: req.body.body, 
     userTag: req.body.userTag,
@@ -41,3 +40,7 @@ exports.createPost = functions.https.onRequest((req, res) => {
     console.error(err);
   })
 });
+
+
+// https://baseurl.com/api/
+exports.api = functions.https.onRequest(app);
