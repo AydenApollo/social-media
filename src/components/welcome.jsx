@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
-import Login from './logButton';
+
 import SignUp from './signupButton';
+import Image from '../assets/phone.jpg'
 
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+
+const styles = {
+    paperContainer: {
+        backgroundImage: `url(${Image})`
+    }
+};
 
 class Welcome extends Component {
     render() {
         return (
+            <Paper style={styles.paperContainer}>
             <form onSubmit={(e) => this.handleSubmit(e)}>
             <div>
                 <div>
@@ -23,10 +33,11 @@ class Welcome extends Component {
                     <SignUp/>
                     </div>
                 <div>
-                    Already Have an Account? Login<Button>Here</Button>
+                    Already Have an Account? Login<Button component={Link} to='/Login'>Here</Button>
                 </div>
                 </div>
             </form>
+                </Paper>
         )
     }
 }

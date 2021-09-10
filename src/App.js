@@ -12,6 +12,11 @@ import Home from './components/homeButton';
 import SignUp from './components/signupButton';
 import store from './dispatch/store';
 
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>Page not found: {location.pathname}</h3>
+  </div>
+)
 
 function App() {
   return (
@@ -19,22 +24,23 @@ function App() {
       <BrowserRouter>
       <AppBar position="relative">
         <Toolbar>
-          <Box display="flex" width={100} alignItems="center">
-            <h4>LOOK@ME</h4>
+          <Box color="#ffffff"display="flex" width={1080} alignItems="center">
+            <h4><Link to='/'>LOOK@ME</Link></h4>
           </Box>
-          <Box>
+          <Box display="flex" width={100} alignItems="center">
             <Login/>
           </Box>
-          <Box>
+          <Box display="flex" width={100} alignItems="center">
             <Home/>
           </Box>
-          <Box>
+          <Box display="flex" width={100} alignItems="center">
             <Button component={Link} to='/'>SignUp</Button>
           </Box>
         </Toolbar>
       </AppBar>
       <Switch>
         <Route exact path="/" component={Welcome}/>
+        <Route component={NoMatch}/>
       </Switch>
       </BrowserRouter>
     </Provider>
